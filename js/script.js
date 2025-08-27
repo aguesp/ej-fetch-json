@@ -22,12 +22,12 @@ function showData(dataArray) {
 fetch(DATA_URL)
   .then(response => {
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error("Error al cargar el archivo JSON");
     }
-    return response.json(); // Convertimos a JSON
+    return response.json();
   })
   .then(data => {
-    showData(data); // Mostramos los datos en el DOM
+    showData(data.students);
   })
   .catch(error => {
     console.error("Error al obtener los datos:", error);
